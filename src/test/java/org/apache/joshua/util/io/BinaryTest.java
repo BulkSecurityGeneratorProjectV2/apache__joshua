@@ -23,6 +23,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
+import java.nio.file.Files;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -49,7 +50,7 @@ public class BinaryTest {
 
     try {
 
-      File tempFile = File.createTempFile(BinaryTest.class.getName(), "vocab");
+      File tempFile = Files.createTempFile(BinaryTest.class.getName(), "vocab").toFile();
       FileOutputStream outputStream = new FileOutputStream(tempFile);
       @SuppressWarnings({ "unused", "resource" })
       ObjectOutput out = new BinaryOut(outputStream, true);

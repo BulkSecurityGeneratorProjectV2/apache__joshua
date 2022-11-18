@@ -29,6 +29,7 @@ import static org.testng.AssertJUnit.assertFalse;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 
 public class VocabularyTest {
   private static final String WORD1 = "word1";
@@ -109,7 +110,7 @@ public class VocabularyTest {
 
   @Test
   public void givenVocabulary_whenWritenAndReading_thenVocabularyStaysTheSame() throws IOException {
-    File vocabFile = File.createTempFile( "vocab", "tmp");
+    File vocabFile = Files.createTempFile("vocab", "tmp").toFile();
     vocabFile.deleteOnExit();
 
     int id1 = Vocabulary.id(WORD1);

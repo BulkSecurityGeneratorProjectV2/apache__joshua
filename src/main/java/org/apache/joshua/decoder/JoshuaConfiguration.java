@@ -22,6 +22,7 @@ import static org.apache.joshua.util.FormatUtils.cleanNonTerminal;
 import static org.apache.joshua.util.FormatUtils.ensureNonTerminalBrackets;
 
 import java.io.File;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -339,7 +340,7 @@ public class JoshuaConfiguration {
    */
   public void processCommandLineOptions(String[] options) {
     try {
-      File tmpFile = File.createTempFile("options", null, null);
+      File tmpFile = Files.createTempFile("options", null).toFile();
       PrintWriter out = new PrintWriter(new FileWriter(tmpFile));
 
       for (int i = 0; i < options.length; i++) {

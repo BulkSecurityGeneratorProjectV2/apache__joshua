@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,7 +56,7 @@ public class ArpaFileTest {
     vocab.id("the");
 
     try {
-      File file = File.createTempFile("testLM", "arpa");
+      File file = Files.createTempFile("testLM", "arpa").toFile();
       PrintStream out = new PrintStream(file, "UTF-8");
 
       out.println();
